@@ -1,12 +1,21 @@
-@import url("https://fonts.googleapis.com");
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
 
 @source "routes";
 @source "components";
 @source "app.html";
 
+@font-face {
+  font-family: "Gilroy Light";
+  src: url("/fonts/gilroy-light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-mono: "Roboto Mono", monospace;
+  --font-sans: "Gilroy Light", sans-serif;
+  --font-mono: monospace;
 
   --color-primary-50: var(--color-neutral-50);
   --color-primary-100: var(--color-neutral-100);
@@ -35,6 +44,7 @@
 
 @layer components {
   body {
+    font-family: "Gilroy Light", sans-serif;
     overflow: hidden;
     position: fixed;
     width: 100vw;
