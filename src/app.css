@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com");
+@import "tailwindcss";
+
+@source "routes";
+@source "components";
+@source "app.html";
+
+@theme {
+  --font-mono: 'Roboto Mono', monospace;
+
+  --color-primary-50: var(--color-slate-50);
+	--color-primary-100: var(--color-slate-100);
+	--color-primary-200: var(--color-slate-200);
+	--color-primary-300: var(--color-slate-300);
+	--color-primary-400: var(--color-slate-400);
+	--color-primary-500: var(--color-slate-500);
+	--color-primary-600: var(--color-slate-600);
+	--color-primary-700: var(--color-slate-700);
+	--color-primary-800: var(--color-slate-800);
+	--color-primary-900: var(--color-slate-900);
+	--color-primary-950: var(--color-slate-950);
+
+	--color-accent-50: var(--color-green-50);
+	--color-accent-100: var(--color-green-100);
+	--color-accent-200: var(--color-green-200);
+	--color-accent-300: var(--color-green-300);
+	--color-accent-400: var(--color-green-400);
+	--color-accent-500: var(--color-green-500);
+	--color-accent-600: var(--color-green-600);
+	--color-accent-700: var(--color-green-700);
+	--color-accent-800: var(--color-green-800);
+	--color-accent-900: var(--color-green-900);
+	--color-accent-950: var(--color-green-950);
+}
+
+@layer components {
+  body {
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  main {
+    height: 100vh;
+  }
+
+  * {
+		scrollbar-color: var(--color-primary-500) var(--color-primary-800);
+	}
+
+	.light-scrollbar {
+		scrollbar-color: var(--color-primary-400) var(--color-primary-700);
+	}
+
+  .markdown {
+    color: var(--color-primary-100);
+  }
+}
+
+/*
+.mod-entry {
+  @apply bg-[blue] flex flex-row items-center gap-[0.2em] w-full border text-[clamp(1rem,5vh,3rem)] font-medium transition-[border-color] duration-[0.25s] cursor-pointer pb-2.5 px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent;
+  font-family: inherit;
+  outline: none;
+}
+.download-icon {
+  /* @apply ml-[70%]; *//*
+}
+.logo.vite:hover {
+  filter: drop-shadow(0 0 2em #747bff);
+}
+.logo.svelte-kit:hover {
+  filter: drop-shadow(0 0 2em #ff3e00);
+}
+:root {
+  @apply text-base leading-6 font-normal text-[#0f0f0f] bg-[#f6f6f6] dark:text-[#f6f6f6] dark:bg-[#2f2f2f];
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: "Nunito Sans", sans-serif; *//*
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+.container {
+  @apply flex flex-col justify-center text-center m-0 pt-[10vh];
+}
+.logo {
+  @apply h-[6em] will-change-[filter] transition-[0.75s] p-[1.5em];
+}
+.logo.tauri:hover {
+  filter: drop-shadow(0 0 2em #24c8db);
+}
+.row {
+  @apply flex justify-center;
+}
+a {
+  @apply font-medium text-[#646cff] hover:text-[#535bf2] dark:hover:text-[#24c8db];
+  text-decoration: inherit;
+}
+h1 {
+  @apply text-center;
+}
+.refresh-button {
+  @apply border text-[1em] font-medium text-[#0f0f0f] bg-[#0f0f0f] transition-[border-color] duration-[0.25s] shadow-[0_2px_2px_rgba(0,0,0,0.2)] cursor-pointer px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent hover:border-[#396cd8] active:bg-[#181818] active:border-[#396cd8];
+  font-family: inherit;
+  outline: none;
+}
+input,
+button {
+  @apply border text-[1em] font-medium text-[#0f0f0f] bg-white transition-[border-color] duration-[0.25s] shadow-[0_2px_2px_rgba(0,0,0,0.2)] px-[1.2em] py-[0.6em] rounded-lg border-solid border-transparent;
+  font-family: inherit;
+}
+button {
+  @apply cursor-pointer hover:border-[#396cd8] active:bg-[#e8e8e8] active:border-[#396cd8] dark:active:bg-[#0f0f0f69];
+}
+input,
+button {
+  outline: none;
+}
+#greet-input {
+  @apply mr-[1.25];
+}
+@media (prefers-color-scheme: dark) {
+  input,
+  button {
+    @apply text-white bg-[#0f0f0f98];
+  }
+}
+*/
