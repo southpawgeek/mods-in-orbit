@@ -1,12 +1,12 @@
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/core";
   // import { RefreshCw } from "lucide-svelte";
-  import ModList from "$lib/components/ModList.svelte";
+  import ModList from "$lib/components/fancy/ModList.svelte";
   import { getMods, greet } from "$lib/api/commands";
   import { onMount } from "svelte";
   import type { ModEntry } from "$lib/types";
-  import ModDetails from "$lib/components/ModDetails.svelte";
-  import LaunchGame from "$lib/components/LaunchGame.svelte";
+  import ModDetails from "$lib/components/fancy/ModDetails.svelte";
+  import LaunchGame from "$lib/components/fancy/LaunchGame.svelte";
 
   let name = $state("");
   let greetMsg = $state("");
@@ -24,12 +24,18 @@
   <div class="flex flex-col overflow-hidden grow w-[60%] justify-start gap-0">
     <LaunchGame />
     <div class="flex flex-col w-full overflow-hidden grow">
-      <ModList {mods} bind:maxCount bind:selected={selectedMod} />
+      <ModList
+        {mods}
+        bind:maxCount
+        bind:selected={selectedMod}
+      />
     </div>
   </div>
 
   {#if selectedMod}
-    <ModDetails mod={selectedMod} onclose={() => (selectedMod = null)}
+    <ModDetails
+      mod={selectedMod}
+      onclose={() => (selectedMod = null)}
     ></ModDetails>
   {/if}
 </div>

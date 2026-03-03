@@ -2,5 +2,6 @@
   "svelte.enable-ts-plugin": true,
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "prettier.semi": true
 }

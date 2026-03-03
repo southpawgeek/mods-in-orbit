@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
 
 @source "routes";
 @source "components";
@@ -29,17 +28,19 @@
   --color-primary-900: var(--color-neutral-900);
   --color-primary-950: var(--color-neutral-950);
 
-  --color-accent-50: var(--color-yellow-50);
-  --color-accent-100: var(--color-yellow-100);
-  --color-accent-200: var(--color-yellow-200);
-  --color-accent-300: var(--color-yellow-300);
-  --color-accent-400: var(--color-yellow-400);
-  --color-accent-500: var(--color-yellow-500);
-  --color-accent-600: var(--color-yellow-600);
-  --color-accent-700: var(--color-yellow-700);
-  --color-accent-800: var(--color-yellow-800);
-  --color-accent-900: var(--color-yellow-900);
-  --color-accent-950: var(--color-yellow-950);
+  --color-accent-50: oklch(98.5% 0.012 86);
+  --color-accent-100: oklch(96% 0.03 86);
+  --color-accent-200: oklch(92% 0.055 86);
+  --color-accent-300: oklch(86% 0.082 86);
+  --color-accent-400: oklch(78% 0.098 86);
+  --color-accent-500: oklch(70.8% 0.109 86);
+  --color-accent-600: oklch(62.5% 0.102 86);
+  --color-accent-700: oklch(53.5% 0.09 86);
+  --color-accent-800: oklch(44.5% 0.075 86);
+  --color-accent-900: oklch(36% 0.06 86);
+  --color-accent-950: oklch(26% 0.045 86);
+
+  --desat-accent-500: rgb(219, 207, 174);
 }
 
 @layer components {
@@ -66,6 +67,55 @@
   .markdown {
     color: var(--color-primary-100);
   }
+
+  .fancy-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    top: -1.25rem;
+    right: 1rem;
+    background-color: var(--color-primary-900)
+  }
+
+  .fancy-header-icon {
+    height: 1.25rem;
+    width: auto;
+  }
+
+  .fancy-header h3 {
+    color: var(--desat-accent-500);
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .fancy-headered-content {
+    margin: 0.25rem !important;
+    padding: 0.75rem 0.5rem;
+    position: relative;
+  }
+
+  .fancy-left {
+    border-right: none !important;
+    width: 5px;
+    height: 1.2em;
+  }
+
+  .fancy-header h3, .fancy-left, .fancy-right {
+    margin-top: 0.25rem !important;
+    background-color: var(--color-primary-900)
+  }
+
+  .fancy-right {
+    border-left: none !important;
+    width: 5px;
+    height: 1.2em;
+  }
+}
+
+.fancy-left, .fancy-right, .fancy-headered-content {
+  border: 1px solid var(--desat-accent-500);
 }
 
 /*
