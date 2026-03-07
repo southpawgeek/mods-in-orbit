@@ -85,9 +85,12 @@
   //   });
 </script>
 
-<div class="relative flex w-[40%] min-w-72 flex-col border px-6 pt-6 pb-4">
+<div class="relative flex w-[40%] min-w-72 flex-col">
   <div class="fancy-headered-content">
-    <Header text={formatModName(mod.displayTitle)} />
+    <Header
+      text={formatModName(mod.displayTitle)}
+      position="right"
+    />
 
     <div>
       <a
@@ -122,50 +125,50 @@
         {mod.description}
       </p>
     {/if}
-  </div>
 
-  {#if mod.dependencies !== null && mod.dependencies.length > -1}
-    <button
-      class="flex items-center py-1 pl-3 pr-1 mt-1 text-white rounded-md group bg-primary-600 hover:bg-primary-500"
-      onclick={() => (dependenciesOpen = true)}
-    >
-      <Network class="mr-2 text-lg" />
-      Dependencies
-      <div
-        class="bg-primary-500 group-hover:bg-primary-400 ml-auto rounded-md px-3 py-0.5 text-sm"
+    {#if mod.dependencies !== null && mod.dependencies.length > -1}
+      <button
+        class="flex items-center py-1 pl-3 pr-1 mt-1 text-white rounded-md group bg-primary-600 hover:bg-primary-500"
+        onclick={() => (dependenciesOpen = true)}
       >
-        {mod.dependencies.length}
-      </div>
-    </button>
-  {/if}
+        <Network class="mr-2 text-lg" />
+        Dependencies
+        <div
+          class="bg-primary-500 group-hover:bg-primary-400 ml-auto rounded-md px-3 py-0.5 text-sm"
+        >
+          {mod.dependencies.length}
+        </div>
+      </button>
+    {/if}
 
-  {#if !isInstalled}
-    <button
-      class="flex items-center py-1 pl-3 pr-1 mt-1 text-white rounded-md group bg-accent-600 hover:bg-accent-500"
-      onclick={async () => await triggerInstallMod(mod.id)}
+    {#if !isInstalled}
+      <button
+        class="flex items-center py-1 pl-3 pr-1 mt-1 text-white rounded-md group bg-accent-600 hover:bg-accent-500"
+        onclick={async () => await triggerInstallMod(mod.id)}
+      >
+        <Download class="mr-2 text-lg" />
+        Install
+      </button>
+    {:else}
+      <button
+        class="flex items-center py-1 pl-3 pr-1 mt-1 text-white rounded-md group bg-primary-600 hover:bg-primary-500"
+        onclick={async () => console.log("uninstall unimplemented")}
+      >
+        <Check class="mr-2 text-lg" />
+        Already Installed
+      </button>
+    {/if}
+
+    <DependenciesDialog
+      title={mod.displayTitle}
+      bind:open={dependenciesOpen}
     >
-      <Download class="mr-2 text-lg" />
-      Install
-    </button>
-  {:else}
-    <button
-      class="flex items-center py-1 pl-3 pr-1 mt-1 text-white rounded-md group bg-primary-600 hover:bg-primary-500"
-      onclick={async () => console.log("uninstall unimplemented")}
-    >
-      <Check class="mr-2 text-lg" />
-      Already Installed
-    </button>
-  {/if}
+      {#if mod.dependencies}
+        <ModCardList
+          ids={mod.dependencies}
+          class="mt-4"
+        />
+      {/if}
+    </DependenciesDialog>
+  </div>
 </div>
-
-<DependenciesDialog
-  title={mod.displayTitle}
-  bind:open={dependenciesOpen}
->
-  {#if mod.dependencies}
-    <ModCardList
-      ids={mod.dependencies}
-      class="mt-4"
-    />
-  {/if}
-</DependenciesDialog>

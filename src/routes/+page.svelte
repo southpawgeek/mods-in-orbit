@@ -7,6 +7,7 @@
   import type { ModEntry } from "$lib/types";
   import ModDetails from "$lib/components/fancy/ModDetails.svelte";
   import LaunchGame from "$lib/components/fancy/LaunchGame.svelte";
+  import Header from "$lib/components/fancy/Header.svelte";
 
   let name = $state("");
   let greetMsg = $state("");
@@ -20,22 +21,30 @@
   });
 </script>
 
-<div class="flex overflow-hidden grow">
-  <div class="flex flex-col overflow-hidden grow w-[60%] justify-start gap-0">
-    <LaunchGame />
-    <div class="flex flex-col w-full overflow-hidden grow">
-      <ModList
-        {mods}
-        bind:maxCount
-        bind:selected={selectedMod}
-      />
+<div class="main-wrapper">
+  <div class="flex overflow-hidden grow">
+    <div class="flex flex-col overflow-hidden grow w-[60%] justify-start gap-0">
+      <div class="fancy-headered-content">
+        <Header
+          text="Mods in Orbit"
+          position="left"
+        />
+        <LaunchGame />
+        <div class="flex flex-col w-full overflow-hidden grow">
+          <ModList
+            {mods}
+            bind:maxCount
+            bind:selected={selectedMod}
+          />
+        </div>
+      </div>
     </div>
-  </div>
 
-  {#if selectedMod}
-    <ModDetails
-      mod={selectedMod}
-      onclose={() => (selectedMod = null)}
-    ></ModDetails>
-  {/if}
+    {#if selectedMod}
+      <ModDetails
+        mod={selectedMod}
+        onclose={() => (selectedMod = null)}
+      ></ModDetails>
+    {/if}
+  </div>
 </div>
