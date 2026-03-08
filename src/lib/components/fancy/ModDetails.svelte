@@ -115,33 +115,15 @@
       {/if}
     </p>
 
-    <div>
-      <!-- <a
-        class="pr-4 text-3xl font-bold text-left text-white wrap-break-word xl:text-4xl hover:underline"
-        href={communityUrl(`${mod.authorSlug}/${mod.titleSlug}`)}
-        target="_blank"
+    {#if mod.authorSlug && mod.titleSlug}
+      <button
+        class="flex items-center py-1 pl-3 pr-1 mt-1 text-white rounded-md group bg-primary-600 hover:bg-primary-500"
       >
-        {formatModName(mod.displayTitle)}
-      </a> -->
-      {#if mod.displayAuthor}
-        <div class="text-xl text-primary-300 xl:text-2xl">
-          by {#if mod.authorSlug}<a
-              class="hover:underline"
-              href={communityUrl(mod.authorSlug)}
-              target="_blank"
-            >
-              {mod.displayAuthor}
-            </a>
-          {:else}
-            {mod.displayAuthor}
-          {/if}
-        </div>
-      {/if}
-
-      {#if newestVersion}
-        <div class="text-xl text-primary-300 xl:text-2xl">v{newestVersion}</div>
-      {/if}
-    </div>
+        <a
+          href={communityUrl(`${mod.authorSlug}/${mod.titleSlug}`)}
+          target="_blank"><i class="fa-brands fa-github mr-2"></i> View on GitHub</a
+        >
+      </button>{/if}
 
     {#if mod.dependencies !== null && mod.dependencies.length > -1}
       <button
