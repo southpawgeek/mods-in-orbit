@@ -98,8 +98,24 @@
   }
 
   .fancy-header-icon {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .fancy-header-icon img {
     height: 1.25rem;
     width: auto;
+    display: block;
+  }
+
+  .fancy-header-icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--desat-accent-500);
+    mix-blend-mode: color;
+    opacity: 0.8;
+    pointer-events: none;
   }
 
   .fancy-header h3 {
