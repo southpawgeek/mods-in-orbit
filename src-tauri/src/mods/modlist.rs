@@ -22,9 +22,9 @@ use crate::{
 };
 
 const GITHUB_API_URL: &str =
-    "https://api.github.com/repos/ShackledMars261/mio-modlinks/commits?path=mods.json&per_page=1";
+    "https://api.github.com/repos/MIO-Modding/modlinks/commits?path=mods.json&per_page=1";
 const MODS_JSON_URL: &str =
-    "https://raw.githubusercontent.com/ShackledMars261/mio-modlinks/refs/heads/main/mods.json";
+    "https://raw.githubusercontent.com/MIO-Modding/modlinks/refs/heads/main/mods.json";
 
 // change this to a user defined variable!!
 pub const MIO_GAME_DIR: &str = "C:/Program Files (x86)/Steam/steamapps/common/MIO";
