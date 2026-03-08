@@ -8,6 +8,7 @@
   import ModDetails from "$lib/components/fancy/ModDetails.svelte";
   import LaunchGame from "$lib/components/fancy/LaunchGame.svelte";
   import Header from "$lib/components/fancy/Header.svelte";
+  import DefaultSidebar from "$lib/components/fancy/DefaultSidebar.svelte";
 
   let name = $state("");
   let greetMsg = $state("");
@@ -45,6 +46,8 @@
         mod={selectedMod}
         onclose={() => (selectedMod = null)}
       ></ModDetails>
+    {:else}
+      <DefaultSidebar />
     {/if}
   </div>
 </div>

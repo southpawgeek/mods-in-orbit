@@ -107,6 +107,7 @@
     margin: 0.75rem !important;
     padding: 0.75rem 0.5rem;
     position: relative;
+    min-height: 33rem;
   }
 
   .fancy-left {

@@ -89,8 +89,14 @@
   <div class="fancy-headered-content">
     <Header
       text={formatModName(mod.displayTitle)}
-      position="right"
+      position="left"
     />
+
+    {#if mod.description !== null}
+      <p class="mt-2 text-xl text-primary-300 grow">
+        {mod.description}
+      </p>
+    {/if}
 
     <div>
       <a
@@ -119,12 +125,6 @@
         <div class="text-xl text-primary-300 xl:text-2xl">v{newestVersion}</div>
       {/if}
     </div>
-
-    {#if mod.description !== null}
-      <p class="mt-2 text-xl text-primary-300 grow">
-        {mod.description}
-      </p>
-    {/if}
 
     {#if mod.dependencies !== null && mod.dependencies.length > -1}
       <button
