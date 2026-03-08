@@ -92,20 +92,37 @@
       position="left"
     />
 
-    {#if mod.description !== null}
-      <p class="mt-2 text-xl text-primary-300 grow">
-        {mod.description}
-      </p>
-    {/if}
+    <p class="mt-0 text-xl grow">
+      {#if mod.description !== null}
+        <span class="text-primary-50">{mod.description}</span>
+        <br />
+      {/if}
+      {#if mod.displayAuthor}
+        <span class="mt-4 text-primary-500"
+          >Author: {mod.displayAuthor}
+          {#if mod.authorSlug}<a
+              href={communityUrl(mod.authorSlug)}
+              target="_blank"
+              title="View author on GitHub"
+              ><i class="fa-brands fa-github"></i></a
+            >{/if}</span
+        >
+        <br />
+      {/if}
+      {#if newestVersion}
+        <span class="text-primary-500">{newestVersion}</span>
+        <br />
+      {/if}
+    </p>
 
     <div>
-      <a
+      <!-- <a
         class="pr-4 text-3xl font-bold text-left text-white wrap-break-word xl:text-4xl hover:underline"
         href={communityUrl(`${mod.authorSlug}/${mod.titleSlug}`)}
         target="_blank"
       >
         {formatModName(mod.displayTitle)}
-      </a>
+      </a> -->
       {#if mod.displayAuthor}
         <div class="text-xl text-primary-300 xl:text-2xl">
           by {#if mod.authorSlug}<a
