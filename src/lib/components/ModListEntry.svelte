@@ -22,12 +22,13 @@
 
   type Props = {
     mod: ModEntry;
+    filter?: "all" | "installed" | "not-installed";
     isSelected: boolean;
     onclick: EventHandler<MouseEvent>;
     onkeydown: EventHandler<KeyboardEvent>;
   };
 
-  let { mod, isSelected, onclick, onkeydown }: Props = $props();
+  let { mod, filter = "all", isSelected, onclick, onkeydown }: Props = $props();
 
   let isInstalled: boolean = $state(false);
   let newestVersion: string = $state("0.0.0");
@@ -37,6 +38,12 @@
     isSelected
       ? "text-primary-300"
       : "text-primary-400 group-hover:text-primary-300",
+  );
+
+  let isVisible = $derived(
+    filter === "all" ||
+      (filter === "installed" && isInstalled) ||
+      (filter === "not-installed" && !isInstalled),
   );
 
   onMount(async () => {
@@ -125,6 +132,7 @@
   // });
 </script>
 
+<div class="{isVisible ? '' : 'hidden'}">
 <button
   class="group flex w-full items-center rounded-lg border p-2 {isSelected
     ? 'border-primary-500 bg-primary-700'
@@ -186,3 +194,4 @@
     </button>
   {/if}
 </button>
+</div>

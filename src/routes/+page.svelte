@@ -9,6 +9,7 @@
   import LaunchGame from "$lib/components/fancy/LaunchGame.svelte";
   import Header from "$lib/components/fancy/Header.svelte";
   import DefaultSidebar from "$lib/components/fancy/DefaultSidebar.svelte";
+  import ModTabs from "$lib/components/fancy/ModTabs.svelte";
 
   let name = $state("");
   let greetMsg = $state("");
@@ -16,6 +17,7 @@
   let mods: ModEntry[] = $state([]);
   let selectedMod: ModEntry | null = $state(null);
   let maxCount: number = $state(20);
+  let modFilter: "all" | "installed" | "not-installed" = $state("all");
 
   onMount(async () => {
     mods = await getMods();
@@ -24,7 +26,9 @@
 
 <div class="main-wrapper">
   <div class="flex min-h-0 flex-1 overflow-hidden">
-    <div class="flex min-h-0 flex-1 flex-col overflow-hidden w-[60%] justify-start gap-0">
+    <div
+      class="flex min-h-0 flex-1 flex-col overflow-hidden w-[60%] justify-start gap-0"
+    >
       <div class="fancy-headered-content">
         <Header
           text="Mods in Orbit"
@@ -32,8 +36,10 @@
         />
         <LaunchGame />
         <div class="flex flex-col w-full overflow-hidden grow">
+          <ModTabs bind:value={modFilter} />
           <ModList
             {mods}
+            filter={modFilter}
             bind:maxCount
             bind:selected={selectedMod}
           />

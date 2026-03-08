@@ -9,17 +9,20 @@
 
   type Props = {
     mods: Mod[];
+    filter?: "all" | "installed" | "not-installed";
     maxCount: Number;
     selected: Mod | null;
   };
 
   let {
     mods,
+    filter = "all",
     maxCount = $bindable(20),
     selected = $bindable(null),
   }: Props = $props();
 
   $effect(() => {
+    filter; // track filter changes
     selected = null;
   });
 
@@ -40,6 +43,7 @@
   {#each mods as mod}
     <ModEntry
       {mod}
+      {filter}
       isSelected={selected?.id == mod.id}
       onclick={(event: MouseEvent) => {
         event.preventDefault();
