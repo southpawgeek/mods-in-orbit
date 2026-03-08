@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "@fortawesome/fontawesome-free/css/brands.min.css";
 
 @source "routes";
 @source "components";
