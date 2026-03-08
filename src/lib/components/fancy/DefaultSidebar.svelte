@@ -2,7 +2,7 @@
   import Header from "./Header.svelte";
 </script>
 
-<div class="relative flex w-[40%] min-w-72 flex-col">
+<div class="relative flex min-h-0 min-w-72 w-[40%] flex-col overflow-hidden">
   <div class="fancy-headered-content">
     <Header
       text="Welcome!"

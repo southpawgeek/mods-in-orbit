@@ -23,8 +23,8 @@
 </script>
 
 <div class="main-wrapper">
-  <div class="flex overflow-hidden grow">
-    <div class="flex flex-col overflow-hidden grow w-[60%] justify-start gap-0">
+  <div class="flex min-h-0 flex-1 overflow-hidden">
+    <div class="flex min-h-0 flex-1 flex-col overflow-hidden w-[60%] justify-start gap-0">
       <div class="fancy-headered-content">
         <Header
           text="Mods in Orbit"
